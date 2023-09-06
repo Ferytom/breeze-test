@@ -32,6 +32,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::view('/ecommerce', 'admin.ecommerce')->name('admin.ecommerce');
         Route::view('/alert', 'admin.alert')->name('admin.alert');
         Route::view('/email', 'admin.email')->name('admin.email');
+
         Route::resource('categories', AdminCategoryController::class, [
             'names' => [
                 'index' => 'admin.categories.index',
@@ -42,6 +43,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
                 'destroy' => 'admin.categories.destroy',
             ]
         ])->except(['show']);
+
         Route::resource('products', AdminProductController::class, [
             'names' => [
                 'index' => 'admin.products.index',

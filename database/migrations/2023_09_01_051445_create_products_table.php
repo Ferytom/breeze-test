@@ -15,12 +15,13 @@ return new class extends Migration
             $table->id();
             $table->foreignId('category_id');
             $table->string('name');
-            $table->float('unit_price');
+            $table->string('slug')->unique();
+            $table->decimal('price', 10, 2);
             $table->integer('quantity');
-            $table->string('description');
-            $table->string('image');
+            $table->text('description');
+            $table->string('image')->nullable();
             $table->string('color');
-            $table->string('size');
+            $table->string('variant');
             $table->timestamps();
         });
     }

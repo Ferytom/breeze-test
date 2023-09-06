@@ -26,7 +26,7 @@
                         </div>
 
                         <div class="flex-1 ml-10 w-32 h-32 lg:w-auto lg:h-auto overflow-hidden">
-                            <img class="object-cover" src="img/congrats.svg">
+                            <img class="object-cover" src="{{ asset('assets/img/congrats.svg') }}">
                         </div>
 
                     </div>
@@ -219,7 +219,7 @@
                             <tr class="">
                                 <td class="py-4 text-sm text-gray-600 flex flex-row items-center text-left">
                                     <div class="w-8 h-8 overflow-hidden mr-3">
-                                        <img src="img/sneakers.svg" class="object-cover">
+                                        <img src="{{ asset('assets/img/sneakers.svg') }}" class="object-cover">
                                     </div>
                                     Sneakers and Tennis
                                 </td>
@@ -233,7 +233,7 @@
                             <tr class="">
                                 <td class="py-4 text-sm text-gray-600 flex flex-row items-center">
                                     <div class="w-8 h-8 overflow-hidden mr-3">
-                                        <img src="img/socks.svg" class="object-cover">
+                                        <img src="{{ asset('assets/img/socks.svg') }}" class="object-cover">
                                     </div>
                                     Crazy Socks & Graphic Socks for Men
                                 </td>
@@ -247,7 +247,7 @@
                             <tr class="">
                                 <td class="py-4 text-sm text-gray-600 flex flex-row items-center">
                                     <div class="w-8 h-8 overflow-hidden mr-3">
-                                        <img src="img/soccer.svg" class="object-cover">
+                                        <img src="{{ asset('assets/img/soccer.svg') }}" class="object-cover">
                                     </div>
                                     Adidas Soccer Ball
                                 </td>
@@ -261,7 +261,7 @@
                             <tr class="">
                                 <td class="py-4 text-sm text-gray-600 flex flex-row items-center">
                                     <div class="w-8 h-8 overflow-hidden mr-3">
-                                        <img src="img/food.svg" class="object-cover">
+                                        <img src="{{ asset('assets/img/food.svg') }}" class="object-cover">
                                     </div>
                                     Best Chocolate Chip Cookies
                                 </td>
@@ -308,7 +308,7 @@
                                 <th
                                     class="w-1/2 mb-4 text-xs font-extrabold tracking-wider flex flex-row items-center w-full">
                                     <div class="w-8 h-8 overflow-hidden rounded-full">
-                                        <img src="img/user2.jpg" class="object-cover">
+                                        <img src="{{ asset('assets/img/user2.jpg') }}" class="object-cover">
                                     </div>
                                     <p class="ml-3 name-1">user name</p>
                                 </th>
@@ -344,7 +344,7 @@
                                 <th
                                     class="w-1/2 mb-4 text-xs font-extrabold tracking-wider flex flex-row items-center w-full">
                                     <div class="w-8 h-8 overflow-hidden rounded-full">
-                                        <img src="img/user3.jpg" class="object-cover">
+                                        <img src="{{ asset('assets/img/user3.jpg') }}" class="object-cover">
                                     </div>
                                     <p class="ml-3 name-1">user name</p>
                                 </th>
@@ -380,7 +380,7 @@
                                 <th
                                     class="w-1/2 mb-4 text-xs font-extrabold tracking-wider flex flex-row items-center w-full">
                                     <div class="w-8 h-8 overflow-hidden rounded-full">
-                                        <img src="img/user2.jpg" class="object-cover">
+                                        <img src="{{ asset('assets/img/user2.jpg') }}" class="object-cover">
                                     </div>
                                     <p class="ml-3 name-1">user name</p>
                                 </th>
@@ -415,7 +415,7 @@
                                 <th
                                     class="w-1/2 mb-4 text-xs font-extrabold tracking-wider flex flex-row items-center w-full">
                                     <div class="w-8 h-8 overflow-hidden rounded-full">
-                                        <img src="img/user1.jpg" class="object-cover">
+                                        <img src="{{ asset('assets/img/user1.jpg') }}" class="object-cover">
                                     </div>
                                     <p class="ml-3 name-1">user name</p>
                                 </th>
@@ -450,7 +450,7 @@
                                 <th
                                     class="w-1/2 mb-4 text-xs font-extrabold tracking-wider flex flex-row items-center w-full">
                                     <div class="w-8 h-8 overflow-hidden rounded-full">
-                                        <img src="img/user3.jpg" class="object-cover">
+                                        <img src="{{ asset('assetsd/img/user3.jpg') }}" class="object-cover">
                                     </div>
                                     <p class="ml-3 name-1">user name</p>
                                 </th>
