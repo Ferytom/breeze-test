@@ -10,24 +10,15 @@
                 @csrf
                 <div class="flex flex-col">
                     <label for="name" class="text-sm text-gray-600">Name</label>
-                    <input type="text" name="name" id="name" class="input-text mt-2 w-full">
+                    <input type="text" name="name" id="name" class="input-text mt-2 w-full rounded-lg">
                     @error('name')
                         <span class="text-xs text-red-600">{{ $message }}</span>
                     @enderror
                 </div>
 
-                <div class="relative">
-                    <input type="text" id="floating_outlined"
-                        class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                        placeholder=" " />
-                    <label for="floating_outlined"
-                        class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">Floating
-                        outlined</label>
-                </div>
-
                 <div class="flex flex-col mt-5">
                     <label for="slug" class="text-sm text-gray-600">Slug</label>
-                    <input type="text" name="slug" id="slug" class="input-text mt-2 w-full">
+                    <input type="text" name="slug" id="slug" class="input-text mt-2 w-full rounded-lg">
                     @error('slug')
                         <span class="text-xs text-red-600">{{ $message }}</span>
                     @enderror
@@ -37,4 +28,21 @@
             </form>
         </div>
     </div>
+
+    <script>
+        const slugInput = document.querySelector('#slug');
+        const nameInput = document.querySelector('#name');
+
+        nameInput.addEventListener('keyup', function(e) {
+            slugInput.value = slugify(nameInput.value);
+        });
+
+        function slugify(text) {
+            return text.toString().toLowerCase().trim()
+                .replace(/\s+/g, '-') // Replace spaces with -
+                .replace(/[^\w-]+/g, '') // Remove all non-word chars
+                .replace(/--+/g, '-') // Replace multiple - with single -
+                .substring(0, 60); // Trim slug to first 60 chars
+        }
+    </script>
 </x-admin-layout>

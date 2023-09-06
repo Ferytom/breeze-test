@@ -30,7 +30,12 @@ class AdminCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Category::create([
+            'name' => $request->name,
+            'slug' => $request->slug,
+        ]);
+
+        return redirect()->route('admin.categories.index')->with('success', 'Category has been created!');
     }
 
     /**
@@ -56,7 +61,12 @@ class AdminCategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $category->update([
+            'name' => $request->name,
+            'slug' => $request->slug,
+        ]);
+
+        return redirect()->route('admin.categories.index')->with('success', 'Category has been updated!');
     }
 
     /**
