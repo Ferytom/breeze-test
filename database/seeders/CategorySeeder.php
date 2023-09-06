@@ -13,6 +13,54 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-        Category::factory(10)->create();
+        Category::create([
+            'name' => 'Laptop',
+            'slug' => 'laptop',
+        ]);
+
+        Category::create([
+            'name' => 'Smartphone',
+            'slug' => 'smartphone',
+        ]);
+
+        Category::create([
+            'name' => 'Tablet',
+            'slug' => 'tablet',
+        ]);
+
+        Category::create([
+            'name' => 'Smartwatch',
+            'slug' => 'smartwatch',
+        ]);
+
+        Category::create([
+            'name' => 'Headphone',
+            'slug' => 'headphone',
+        ]);
+
+        Category::create([
+            'name' => 'Speaker',
+            'slug' => 'speaker',
+        ]);
+
+        Category::create([
+            'name' => 'Camera',
+            'slug' => 'camera',
+        ]);
+
+        Category::create([
+            'name' => 'Printer',
+            'slug' => 'printer',
+        ]);
+
+        Category::create([
+            'name' => 'Monitor',
+            'slug' => 'monitor',
+        ]);
+
+        Category::create([
+            'name' => 'Keyboard',
+            'slug' => 'keyboard',
+        ]);
     }
 }

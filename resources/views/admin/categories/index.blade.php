@@ -7,6 +7,14 @@
                 <a href="{{ route('admin.categories.create') }}" class="btn-gray text-sm">Create a New Category</a>
             </div>
 
+            @if (session('success'))
+                <div class="alert alert-success mt-5 flex justify-between">
+                    {{ session('success') }}
+                    <button type="button" class="close" data-dismiss="alert"
+                        onclick="this.parentElement.remove();">{{ 'x' }}</button>
+                </div>
+            @endif
+
             <table class="table-auto w-full mt-5 text-right">
 
                 <thead>
@@ -29,13 +37,13 @@
                             <td class="py-4 text-xs text-gray-600">{{ $category->slug }}</td>
                             <td class="py-4 text-xs text-gray-600">
                                 <div class="flex flex-row justify-end">
-                                    <a href="{{ route('admin.categories.edit', $category->id) }}"
+                                    <a href="{{ route('admin.categories.edit', $category->slug) }}"
                                         class="btn-gray text-xs mr-2">Edit</a>
-                                    <form action="{{ route('admin.categories.destroy', $category->id) }}"
-                                        method="POST">
+                                    <form action="/admin/categories/{{ $category->slug }}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn-red text-xs">Delete</button>
+                                        <button type="submit" class="btn-danger text-xs"
+                                            onclick="return confirm('Are you sure?')">Delete</button>
                                     </form>
                                 </div>
                             </td>
