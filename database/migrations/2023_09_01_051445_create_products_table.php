@@ -19,9 +19,8 @@ return new class extends Migration
             $table->decimal('price', 10, 2);
             $table->integer('quantity');
             $table->text('description');
-            $table->string('image')->nullable();
+            $table->string('image');
             $table->string('color');
-            $table->string('variant');
             $table->timestamps();
         });
     }

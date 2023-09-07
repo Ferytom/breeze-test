@@ -25,7 +25,6 @@ class ProductFactory extends Factory
             'description' => fake()->paragraph(mt_rand(2, 5)),
             'image' => fake()->imageUrl(),
             'color' => fake()->colorName(),
-            'variant' => fake()->randomElement(['S', 'M', 'L', 'XL']),
         ];
     }
 }

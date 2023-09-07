@@ -30,10 +30,12 @@ class AdminCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        Category::create([
-            'name' => $request->name,
-            'slug' => $request->slug,
+        $validated = $request->validate([
+            'name' => 'required|max:255',
+            'slug' => 'required|unique:categories|max:255',
         ]);
+
+        Category::create($validated);
 
         return redirect()->route('admin.categories.index')->with('success', 'Category has been created!');
     }
@@ -61,10 +63,17 @@ class AdminCategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        $category->update([
-            'name' => $request->name,
-            'slug' => $request->slug,
-        ]);
+        $rules = [
+            'name' => 'required|max:255',
+        ];
+
+        if ($request->slug !== $category->slug) {
+            $rules['slug'] = 'required|unique:categories|max:255';
+        }
+
+        $validated = $request->validate($rules);
+
+        Category::where('id', $category->id)->update($validated);
 
         return redirect()->route('admin.categories.index')->with('success', 'Category has been updated!');
     }
