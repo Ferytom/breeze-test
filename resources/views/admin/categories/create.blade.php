@@ -10,7 +10,8 @@
                 @csrf
                 <div class="flex flex-col">
                     <label for="name" class="text-sm text-gray-600">Name</label>
-                    <input type="text" name="name" id="name" class="input-text mt-2 w-full rounded-lg">
+                    <input type="text" name="name" id="name" class="input-text mt-2 w-full rounded-lg"
+                        required autofocus value="{{ old('name') }}">
                     @error('name')
                         <span class="text-xs text-red-600">{{ $message }}</span>
                     @enderror
@@ -18,7 +19,8 @@
 
                 <div class="flex flex-col mt-5">
                     <label for="slug" class="text-sm text-gray-600">Slug</label>
-                    <input type="text" name="slug" id="slug" class="input-text mt-2 w-full rounded-lg">
+                    <input type="text" name="slug" id="slug" class="input-text mt-2 w-full rounded-lg"
+                        required value="{{ old('slug') }}">
                     @error('slug')
                         <span class="text-xs text-red-600">{{ $message }}</span>
                     @enderror

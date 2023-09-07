@@ -6,13 +6,13 @@
                 <a href="{{ route('admin.categories.index') }}" class="btn-gray text-sm">Back to Categories</a>
             </div>
 
-            <form action="{{ route('admin.categories.store') }}" method="POST" class="mt-5">
+            <form action="/admin/categories/{{ $category->slug }}" method="POST" class="mt-5">
                 @csrf
                 @method('PUT')
                 <div class="flex flex-col">
                     <label for="name" class="text-sm text-gray-600">Name</label>
                     <input type="text" name="name" id="name" class="input-text mt-2 w-full rounded-lg"
-                        value="{{ old('name', $category->name) }}">
+                        value="{{ old('name', $category->name) }}" required autofocus>
                     @error('name')
                         <span class="text-xs text-red-600">{{ $message }}</span>
                     @enderror
@@ -21,7 +21,7 @@
                 <div class="flex flex-col mt-5">
                     <label for="slug" class="text-sm text-gray-600">Slug</label>
                     <input type="text" name="slug" id="slug" class="input-text mt-2 w-full rounded-lg"
-                        value="{{ old('slug', $category->slug) }}">
+                        value="{{ old('slug', $category->slug) }}" required>
                     @error('slug')
                         <span class="text-xs text-red-600">{{ $message }}</span>
                     @enderror

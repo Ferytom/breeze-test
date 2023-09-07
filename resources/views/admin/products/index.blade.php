@@ -1,10 +1,10 @@
 <x-admin-layout>
-    <div class="card w-3/4 lg:w-full">
+    <div class="card w-full">
 
         <div class="card-body">
             <div class="flex flex-row justify-between items-center">
-                <h1 class="font-extrabold text-lg">Categories</h1>
-                <a href="{{ route('admin.categories.create') }}" class="btn-gray text-sm">Create a New Category</a>
+                <h1 class="font-extrabold text-lg">Products</h1>
+                <a href="{{ route('admin.products.create') }}" class="btn-gray text-sm">Create a New Product</a>
             </div>
 
             @if (session('success'))
@@ -20,26 +20,34 @@
                 <thead>
                     <tr>
                         <td class="py-4 font-extrabold text-sm text-left">Name</td>
-                        <td class="py-4 font-extrabold text-sm">Slug</td>
+                        <td class="py-4 font-extrabold text-sm">Price</td>
+                        <td class="py-4 font-extrabold text-sm">Quantity</td>
+                        <td class="py-4 font-extrabold text-sm">Color</td>
                         <td class="py-4 font-extrabold text-sm">Action</td>
                     </tr>
                 </thead>
 
                 <tbody>
-                    @foreach ($categories as $category)
+                    @foreach ($products as $product)
                         <tr>
                             <td class="py-4 text-sm text-gray-600 flex flex-row items-center text-left">
                                 <div class="w-8 h-8 overflow-hidden mr-3">
                                     <img src="{{ asset('assets/img/sneakers.svg') }}" class="object-cover">
                                 </div>
-                                {{ $category->name }}
+                                {{ $product->name }}
                             </td>
-                            <td class="py-4 text-xs text-gray-600">{{ $category->slug }}</td>
+                            <td class="py-4 text-xs text-gray-600">
+                                {{ 'Rp ' . number_format($product->price, 2, ',', '.') }}
+                            </td>
+                            <td class="py-4 text-xs text-gray-600">{{ $product->quantity }}</td>
+                            <td class="py-4 text-xs text-gray-600">{{ $product->color }}</td>
                             <td class="py-4 text-xs text-gray-600">
                                 <div class="flex flex-row justify-end">
-                                    <a href="{{ route('admin.categories.edit', $category->slug) }}"
+                                    <a href="{{ route('admin.products.show', $product->slug) }}"
+                                        class="btn-shadow text-xs mr-2">View</a>
+                                    <a href="{{ route('admin.products.edit', $product->slug) }}"
                                         class="btn-gray text-xs mr-2">Edit</a>
-                                    <form action="/admin/categories/{{ $category->slug }}" method="POST">
+                                    <form action="/admin/products/{{ $product->slug }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn-danger text-xs"
